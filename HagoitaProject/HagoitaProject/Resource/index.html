@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <script>
+        function createHttpRequest()
+        {
+        var xmlhttp = null;
+        if(window.ActiveXObject){
+        try {
+        // MSXML2以降用
+        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+        try {
+        // 旧MSXML用
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        } catch (e2) {
+        
+        }
+        }
+        } else if(window.XMLHttpRequest){
+        // Win Mac Linux m1,f1,o8 Mac s1 Linux k3用
+        xmlhttp = new XMLHttpRequest();
+        } else {
+        
+        }
+        if (xmlhttp == null) {
+        alert("Can not create an XMLHTTPRequest instance");
+        }
+        return xmlhttp;
+        }
+        
+        // ファイルにアクセスし受信内容を確認します
+        function sendRequest (method, url, data, async, callback)
+        {
+        // XMLHttpRequestオブジェクト生成
+        var xmlhttp = createHttpRequest();
+        
+        // 受信時に起動するイベント
+        xmlhttp.onreadystatechange = function() {
+        // readyState値は4で受信完了
+        if (xmlhttp.readyState == 4) {
+        //コールバック
+        callback(xmlhttp);
+        }
+        }
+        // open メソッド
+        xmlhttp.open(method, url, async);
+        // HTTPリクエストヘッダを設定
+        xmlhttp.setRequestHeader("Content-Type", "application/json");
+        // send メソッド
+        xmlhttp.send(data);
+        }
+        
+        function setDate()
+        {
+            var data = "{\"test2\":\"かきく\",\"test\":2}";
+            //data += "filename=" + obj.value + ".txt";
+            sendRequest("POST", "http://aaa.aaa.jp:7777/test/teat.json?fileter=1234&test=あいうえ", data, false, callback);
+        }
+        
+        // コールバック関数
+        function callback(xmlhttp)
+        {
+            var result = document.getElementById("result");
+            result.innerHTML = xmlhttp.responseText;
+        }
+        </script>
+    </head>
+<body>
+test
+<a href="https://aaa.aaa.jp:7777/test/teat.json">json</a>
+<a href="javascript:setDate()">ajax</a>
+<div id="result"></div>
+</body>
+</html>

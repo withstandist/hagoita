@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "HKURLProtocol.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +17,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [NSURLProtocol registerClass:HKURLProtocol.class];
+
     // Override point for customization after application launch.
     return YES;
 }
