@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HKURIMappingListenerProtocol.h"
+#import "HKResponse.h"
 
 @interface HKRESTServer : NSObject
-
+@property(strong,nonatomic) NSMutableDictionary *mappingDic;
++ (void)start;
++ (void)end;
++ (void)registURIMapping:(NSString*)uriStr Listener:(NSObject<HKURIMappingListenerProtocol>*)listenObj;
++ (void)unregistURLMapping:(NSString*)uriStr;
++ (HKResponse*)mappingURI:(NSString*)URIstr query:(NSDictionary*)query json:(NSDictionary*)json;
++ (BOOL)isListen:(NSURLRequest *)request;
 @end

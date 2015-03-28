@@ -7,16 +7,12 @@
 //
 
 #import "HKURLProtocol.h"
+#import "HKRESTServer.h"
 
 @implementation HKURLProtocol
 
-//TODO: 外部に条件を委譲する
 + (BOOL)canInitWithRequest:(NSURLRequest *)request{
-
-    if(7777 == [request.URL.port intValue]){
-        return YES;
-    }
-    return NO;
+    return [HKRESTServer isListen:request];
 }
 
 + (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request
@@ -26,54 +22,58 @@
 
 - (void)startLoading
 {
-    
-//    self.request.URL.path
-//    /test/teat.json
-   // po self.request.URL.query
-    //fileter=1234&test=%E3%81%82%E3%81%84%E3%81%86%E3%81%88
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+        @try {
+            NSString *query = self.request.URL.query;
+            NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:0];
+            NSArray *pairs = [query componentsSeparatedByString:@"&"];
+            
+            for (NSString *pair in pairs) {
+                NSArray *elements = [pair componentsSeparatedByString:@"="];
+                NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                NSString *val = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                
+                [dict setObject:val forKey:key];
+            }
+            NSError* error;
+            id body = [NSJSONSerialization JSONObjectWithData:self.request.HTTPBody options:NSJSONReadingAllowFragments error:&error];
+            if(error){
+                NSLog(@"JSON ERROR");
+                @throw [NSException exceptionWithName:@"JSON" reason:nil userInfo:nil];
+            }
+            
+            HKResponse* result = [HKRESTServer mappingURI:self.request.URL.path query:dict json:body];
+            NSData* data = [NSJSONSerialization dataWithJSONObject:result.responseDic options:NSJSONWritingPrettyPrinted error:&error];
+            if(error){
+                NSLog(@"JSON ERROR %@",error);
+                @throw [NSException exceptionWithName:@"JSON" reason:nil userInfo:nil];
+            }
+            [self responseJSONWithHttpStatusCode:result.httpStatusCode data:data];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"NSException %@",exception);
+            [self responseJSONWithHttpStatusCode:500 data:[@"{}" dataUsingEncoding:NSUTF8StringEncoding]];
+        }
+        @finally {
+        }
+    });
 
-    
-    NSString *query = self.request.URL.query;
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:0];
-    NSArray *pairs = [query componentsSeparatedByString:@"&"];
-    
-    for (NSString *pair in pairs) {
-        NSArray *elements = [pair componentsSeparatedByString:@"="];
-        NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSString *val = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        [dict setObject:val forKey:key];
-    }
-    
-    NSLog(@"query %@",dict);
-    
-    NSLog(@"query %@",[dict objectForKey:@"test"]);
-    
-    //
-    //[self.request.URL.pathExtension];
-    NSError* error;
-    id body = [NSJSONSerialization JSONObjectWithData:self.request.HTTPBody options:NSJSONReadingAllowFragments error:&error];
-    if(error){
-        NSLog(@"JSON ERROR");
-    }
-    
-    NSLog(@"%@",[[NSString alloc]initWithData:self.request.HTTPBody encoding:NSUTF8StringEncoding]);
-    int statusCode=200;
-    NSString *json = @"{'teae':1,'test':'test'}";
-    // NSData型にNSStringから変換します。
-    NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *headers = [NSDictionary dictionaryWithObjectsAndKeys:@"application/json", @"Content-Type",
-                             [NSString stringWithFormat:@"%ld",[jsonData length]], @"Content-Length",
-                             nil];
-    NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[self.request URL]
-                                                              statusCode:statusCode
-                                                             HTTPVersion:@"1.1"
-                                                            headerFields:headers];
+}
+
+- (void) responseJSONWithHttpStatusCode:(int)statusCode data:(NSData*) data{
+    NSDictionary*headers = [NSDictionary dictionaryWithObjectsAndKeys:@"application/json", @"Content-Type",
+               [NSString stringWithFormat:@"%ld",[data length]], @"Content-Length",
+               nil];
+    NSHTTPURLResponse* response = [[NSHTTPURLResponse alloc] initWithURL:[self.request URL]
+                                           statusCode:statusCode
+                                          HTTPVersion:@"1.1"
+                                         headerFields:headers];
+
     [self.client URLProtocol:self
           didReceiveResponse:response
           cacheStoragePolicy:NSURLCacheStorageNotAllowed];
-
-    [self.client URLProtocol:self didLoadData:jsonData];
+    
+    [self.client URLProtocol:self didLoadData:data];
     [self.client URLProtocolDidFinishLoading:self];
 }
 

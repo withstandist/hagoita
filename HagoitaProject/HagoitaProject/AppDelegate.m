@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "HKURLProtocol.h"
+#import <HagoitaKit/HagoitaKit.h>
+#import "TestObject.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +18,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [NSURLProtocol registerClass:HKURLProtocol.class];
+    [HKRESTServer registURIMapping:@"/test/" Listener:[TestObject alloc]];
+    [HKRESTServer start];
 
     // Override point for customization after application launch.
     return YES;
