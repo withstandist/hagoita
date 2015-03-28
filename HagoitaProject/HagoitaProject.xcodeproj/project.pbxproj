@@ -19,6 +19,15 @@
 		0E730AEA1AC2F5BF00E09E7E /* HagoitaKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E730AE91AC2F5BF00E09E7E /* HagoitaKitTests.m */; };
 		0E730AED1AC2F5BF00E09E7E /* HagoitaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E730AD61AC2F5BF00E09E7E /* HagoitaKit.framework */; };
 		0E730AEE1AC2F5BF00E09E7E /* HagoitaKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E730AD61AC2F5BF00E09E7E /* HagoitaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0E730AFC1AC4CDEA00E09E7E /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 0E730AFB1AC4CDEA00E09E7E /* index.html */; };
+		0E730B021AC5996700E09E7E /* HKRESTServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E730B001AC5996700E09E7E /* HKRESTServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E730B031AC5996700E09E7E /* HKRESTServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E730B011AC5996700E09E7E /* HKRESTServer.m */; };
+		0E730B041AC59D4800E09E7E /* HKURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E730AFE1AC5823500E09E7E /* HKURLProtocol.m */; };
+		0E730B051AC59D5B00E09E7E /* HKURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E730AFD1AC5823500E09E7E /* HKURLProtocol.h */; };
+		0E730B071AC5A80B00E09E7E /* HKURIMappingListenerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E730B061AC5A80B00E09E7E /* HKURIMappingListenerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E730B0A1AC5AA3B00E09E7E /* HKResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E730B081AC5AA3B00E09E7E /* HKResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E730B0B1AC5AA3B00E09E7E /* HKResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E730B091AC5AA3B00E09E7E /* HKResponse.m */; };
+		0E730B0E1AC5AD5100E09E7E /* TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E730B0D1AC5AD5100E09E7E /* TestObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +95,16 @@
 		0E730AE01AC2F5BF00E09E7E /* HagoitaKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HagoitaKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E730AE81AC2F5BF00E09E7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E730AE91AC2F5BF00E09E7E /* HagoitaKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HagoitaKitTests.m; sourceTree = "<group>"; };
+		0E730AFB1AC4CDEA00E09E7E /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		0E730AFD1AC5823500E09E7E /* HKURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKURLProtocol.h; path = ../HagoitaProject/HKURLProtocol.h; sourceTree = "<group>"; };
+		0E730AFE1AC5823500E09E7E /* HKURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKURLProtocol.m; path = ../HagoitaProject/HKURLProtocol.m; sourceTree = "<group>"; };
+		0E730B001AC5996700E09E7E /* HKRESTServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKRESTServer.h; sourceTree = "<group>"; };
+		0E730B011AC5996700E09E7E /* HKRESTServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKRESTServer.m; sourceTree = "<group>"; };
+		0E730B061AC5A80B00E09E7E /* HKURIMappingListenerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKURIMappingListenerProtocol.h; sourceTree = "<group>"; };
+		0E730B081AC5AA3B00E09E7E /* HKResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKResponse.h; sourceTree = "<group>"; };
+		0E730B091AC5AA3B00E09E7E /* HKResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKResponse.m; sourceTree = "<group>"; };
+		0E730B0C1AC5AD5100E09E7E /* TestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObject.h; sourceTree = "<group>"; };
+		0E730B0D1AC5AD5100E09E7E /* TestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +174,9 @@
 				0E730AB81AC2F53A00E09E7E /* Images.xcassets */,
 				0E730ABA1AC2F53A00E09E7E /* LaunchScreen.xib */,
 				0E730AAB1AC2F53A00E09E7E /* Supporting Files */,
+				0E730AFA1AC4CD3E00E09E7E /* Resource */,
+				0E730B0C1AC5AD5100E09E7E /* TestObject.h */,
+				0E730B0D1AC5AD5100E09E7E /* TestObject.m */,
 			);
 			path = HagoitaProject;
 			sourceTree = "<group>";
@@ -190,6 +212,13 @@
 			children = (
 				0E730ADA1AC2F5BF00E09E7E /* HagoitaKit.h */,
 				0E730AD81AC2F5BF00E09E7E /* Supporting Files */,
+				0E730B001AC5996700E09E7E /* HKRESTServer.h */,
+				0E730B011AC5996700E09E7E /* HKRESTServer.m */,
+				0E730AFD1AC5823500E09E7E /* HKURLProtocol.h */,
+				0E730AFE1AC5823500E09E7E /* HKURLProtocol.m */,
+				0E730B061AC5A80B00E09E7E /* HKURIMappingListenerProtocol.h */,
+				0E730B081AC5AA3B00E09E7E /* HKResponse.h */,
+				0E730B091AC5AA3B00E09E7E /* HKResponse.m */,
 			);
 			path = HagoitaKit;
 			sourceTree = "<group>";
@@ -219,6 +248,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0E730AFA1AC4CD3E00E09E7E /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0E730AFB1AC4CDEA00E09E7E /* index.html */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -227,6 +264,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E730ADB1AC2F5BF00E09E7E /* HagoitaKit.h in Headers */,
+				0E730B021AC5996700E09E7E /* HKRESTServer.h in Headers */,
+				0E730B0A1AC5AA3B00E09E7E /* HKResponse.h in Headers */,
+				0E730B071AC5A80B00E09E7E /* HKURIMappingListenerProtocol.h in Headers */,
+				0E730B051AC59D5B00E09E7E /* HKURLProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E730AB71AC2F53A00E09E7E /* Main.storyboard in Resources */,
+				0E730AFC1AC4CDEA00E09E7E /* index.html in Resources */,
 				0E730ABC1AC2F53A00E09E7E /* LaunchScreen.xib in Resources */,
 				0E730AB91AC2F53A00E09E7E /* Images.xcassets in Resources */,
 			);
@@ -394,6 +436,7 @@
 			files = (
 				0E730AB41AC2F53A00E09E7E /* ViewController.m in Sources */,
 				0E730AB11AC2F53A00E09E7E /* AppDelegate.m in Sources */,
+				0E730B0E1AC5AD5100E09E7E /* TestObject.m in Sources */,
 				0E730AAE1AC2F53A00E09E7E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +453,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E730B041AC59D4800E09E7E /* HKURLProtocol.m in Sources */,
+				0E730B0B1AC5AA3B00E09E7E /* HKResponse.m in Sources */,
+				0E730B031AC5996700E09E7E /* HKRESTServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,8 +593,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HagoitaProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -557,8 +605,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HagoitaProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

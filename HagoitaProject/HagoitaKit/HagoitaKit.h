@@ -16,4 +16,5 @@ FOUNDATION_EXPORT const unsigned char HagoitaKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <HagoitaKit/PublicHeader.h>
 
-
+#import <HagoitaKit/HKRESTServer.h>
+#import <HagoitaKit/HKResponse.h>

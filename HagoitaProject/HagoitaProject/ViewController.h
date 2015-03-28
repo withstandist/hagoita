@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <HagoitaKit/HagoitaKit.h>
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
