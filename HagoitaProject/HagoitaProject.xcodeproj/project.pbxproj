@@ -74,8 +74,6 @@
 		0E730AC11AC2F53A00E09E7E /* HagoitaProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HagoitaProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E730AC61AC2F53A00E09E7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E730AC71AC2F53A00E09E7E /* HagoitaProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HagoitaProjectTests.m; sourceTree = "<group>"; };
-		0E730AE81AC2F5BF00E09E7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E730AE91AC2F5BF00E09E7E /* HagoitaKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HagoitaKitTests.m; sourceTree = "<group>"; };
 		0E730AFB1AC4CDEA00E09E7E /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		0E730AFD1AC5823500E09E7E /* HKURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKURLProtocol.h; sourceTree = "<group>"; };
 		0E730AFE1AC5823500E09E7E /* HKURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKURLProtocol.m; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 			children = (
 				0E730AAA1AC2F53A00E09E7E /* HagoitaProject */,
 				0E730AC41AC2F53A00E09E7E /* HagoitaProjectTests */,
-				0E730AE61AC2F5BF00E09E7E /* HagoitaKitTests */,
 				0E730AA91AC2F53A00E09E7E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -187,23 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				0E730AC61AC2F53A00E09E7E /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0E730AE61AC2F5BF00E09E7E /* HagoitaKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				0E730AE91AC2F5BF00E09E7E /* HagoitaKitTests.m */,
-				0E730AE71AC2F5BF00E09E7E /* Supporting Files */,
-			);
-			path = HagoitaKitTests;
-			sourceTree = "<group>";
-		};
-		0E730AE71AC2F5BF00E09E7E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0E730AE81AC2F5BF00E09E7E /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
