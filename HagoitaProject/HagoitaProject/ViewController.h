@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <HagoitaKit/HagoitaKit.h>
 
 @interface ViewController : UIViewController
 

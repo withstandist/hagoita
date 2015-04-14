@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import <HagoitaKit/HagoitaKit.h>
+#import "HagoitaKit.h"
 #import "TestObject.h"
+#import "DebugHane.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [HKRESTServer registURIMapping:@"/test/" Listener:[TestObject alloc]];
+    [HKRESTServer registURIMapping:@"/log/" Listener:[DebugHane alloc]];
     [HKRESTServer start];
 
     // Override point for customization after application launch.

@@ -15,10 +15,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 
     //
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"index"] ofType:@"html"]isDirectory:NO]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"index2"] ofType:@"html"]isDirectory:NO]]];
 
 }
 

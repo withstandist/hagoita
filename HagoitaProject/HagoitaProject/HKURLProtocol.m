@@ -35,11 +35,17 @@
                 
                 [dict setObject:val forKey:key];
             }
+            
             NSError* error;
-            id body = [NSJSONSerialization JSONObjectWithData:self.request.HTTPBody options:NSJSONReadingAllowFragments error:&error];
-            if(error){
-                NSLog(@"JSON ERROR");
-                @throw [NSException exceptionWithName:@"JSON" reason:nil userInfo:nil];
+            id body;
+            if(self.request.HTTPBody!=nil){
+                body = [NSJSONSerialization JSONObjectWithData:self.request.HTTPBody options:NSJSONReadingAllowFragments error:&error];
+                if(error){
+                    NSLog(@"JSON ERROR");
+                    @throw [NSException exceptionWithName:@"JSON" reason:nil userInfo:nil];
+                }
+            }else{
+                body = nil;
             }
             
             HKResponse* result = [HKRESTServer mappingURI:self.request.URL.path query:dict json:body];
