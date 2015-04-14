@@ -15,7 +15,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    for (id subview in self.webView.subviews)
+        if ([[subview class] isSubclassOfClass: [UIScrollView class]])
+            ((UIScrollView *)subview).bounces = NO;
     //
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"index2"] ofType:@"html"]isDirectory:NO]]];
 
