@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+            <title>Ratchet template page</title>
+            
+            <!-- Sets initial viewport load and disables zooming  -->
+            <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+                
+                <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+                <meta name="apple-mobile-web-app-capable" content="yes">
+                    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+                        
+                        <!-- Include the compiled Ratchet CSS -->
+                        <link href="./ratchet/css/ratchet.css" rel="stylesheet">
+                            
+                            <!-- Include the compiled Ratchet JS -->
+                            <script src="./ratchet/js/ratchet.js"></script>
+                            <script>
+                                console.log=function(str){
+                                    var data = "{\"test2\":\"かきく\",\"test\":2}";
+                                    //data += "filename=" + obj.value + ".txt";
+                                    sendRequest("POST", "http://aaa.aaa.jp:7777/log/"+str, data, callback);
+                                }
+                            
+                                function sendRequest (method, url, data, callback)
+                                {
+                                    var xmlhttp =  new XMLHttpRequest();
+                                    xmlhttp.onreadystatechange = function() {
+                                        if (xmlhttp.readyState == 4) {callback(xmlhttp);}
+                                    }
+                                    xmlhttp.open(method, url, false);
+                                    xmlhttp.setRequestHeader("Content-Type", "application/json");
+                                    xmlhttp.send(data);
+                                }
+                            
+                            function setDate()
+                            {
+                                var data = "{\"test2\":\"かきく\",\"test\":2}";
+                                //data += "filename=" + obj.value + ".txt";
+                                sendRequest("POST", "http://aaa.aaa.jp:7777/test/teat.json?fileter=1234&test=あいうえ", data, callback);
+                            }
+                            function callback(xmlhttp)
+                            {
+                                var result = document.getElementById("result");
+                                result.innerHTML = xmlhttp.responseText;
+                            }
+                            //NSLOGに出力
+                            console.log("テストテスト");
+                            </script>
+                            </head>
+    <body>
+        
+        <!-- Make sure all your bars are the first things in your <body> -->
+        <header class="bar bar-nav">
+            <h1 class="title">Tap title</h1>
+        </header>
+        <div class="content">
+            
+            <ul class="table-view">
+                <li class="table-view-cell media">
+                    <a class="navigate-right">
+                        <img class="media-object pull-left" src="http://placehold.it/42x42">
+                            <div class="media-body">
+                                Item 1
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+                            </div>
+                            </a>
+                </li>
+                <li class="table-view-cell media">
+                    <a class="navigate-right">
+                        <img class="media-object pull-left" src="http://placehold.it/42x42">
+                            <div class="media-body">
+                                Item 1
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+                            </div>
+                            </a>
+                </li>
+                <li class="table-view-cell media">
+                    <a class="navigate-right">
+                        <img class="media-object pull-left" src="http://placehold.it/42x42">
+                            <div class="media-body">
+                                Item 1
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+                            </div>
+                            </a>
+                </li>
+                <li class="table-view-cell media">
+                    <a class="navigate-right">
+                        <img class="media-object pull-left" src="http://placehold.it/42x42">
+                            <div class="media-body">
+                                Item 1
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+                            </div>
+                            </a>
+                </li>
+                <li class="table-view-cell media">
+                    <a class="navigate-right">
+                        <img class="media-object pull-left" src="http://placehold.it/42x42">
+                            <div class="media-body">
+                                Item 1
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+                            </div>
+                            </a>
+                </li>
+            </ul>
+            
+        </div>
+        
+        
+    </body>
+</html>
